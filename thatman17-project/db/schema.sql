@@ -1,13 +1,17 @@
 drop table if exists employees;
 drop table if exists transactions;
 
-create table employees(id serial primary key, username text not null, password text not null, address text not null);
-insert into employees(username, password, address)
-values ('Bruce', 'Banner', '1223 Kafe St.');
-insert into employees(username, password, address)
-values ('Tony', 'Stank', 'Malibu Point, 10880');
-insert into employees(username, password, address)
-values ('Charles', 'Xavier', '1407 Graymalkin Lane');
+create table employees(id serial primary key, username text not null, password text not null, address text not null, permission boolean not null);
+insert into employees(username, password, address, permission)
+values ('Bruce', 'Banner', '1223 Kafe St.', false);
+insert into employees(username, password, address, permission)
+values ('Tony', 'Stank', 'Malibu Point, 10880', false);
+insert into employees(username, password, address, permission)
+values ('Charles', 'Xavier', '1407 Graymalkin Lane', false);
+insert into employees(username, password, address, permission)
+values ('Nick', 'Fury', '1313 Theodore Rooselvelt Isl.', true);
+insert into employees(username, password, address, permission)
+values ('Stephen', 'Strange', '177A Bleecker St.', true);
 
 create table transactions(id serial primary key, username integer references employees(id) not null, cost decimal not null, picture text not null, validate integer not null);
 insert into transactions(username, cost, picture, validate)
