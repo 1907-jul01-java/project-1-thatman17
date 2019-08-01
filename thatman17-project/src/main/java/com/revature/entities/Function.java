@@ -10,6 +10,7 @@ public class Function implements Dao<Employees> {
 	
 	@Override
 	public boolean validate(String username, String password) {
+
 		try {
 			PreparedStatement pt = connection.prepareStatement("select username, password from employees where username =?");
 			pt.setString(1, username);
