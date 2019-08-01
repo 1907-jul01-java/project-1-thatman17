@@ -1,49 +1,38 @@
 package com.revature;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import com.revature.transaction.api.domain.*;
 
-import com.revature.LoginBean;
 
-public class LoginDao {
-
-    public boolean validate(LoginBean loginBean) throws ClassNotFoundException {
-        boolean status = false;
-
-        try (Connection connection = DriverManager
-            .getConnection("jdbc:postgresql://192.168.99.101:5432/revature", "revature", "p4ssw0rd");
-
-            PreparedStatement ps = connection
-            .prepareStatement("select * from login where username = ? and password = ? ")) {
-            ps.setString(1, loginBean.getUsername());
-            ps.setString(2, loginBean.getPassword());
-
-            System.out.println(ps);
-            ResultSet rs = ps.executeQuery();
-            status = rs.next();
-
-        } catch (SQLException e) {
-            printSQLException(e);
-        }
-        return status;
-    }
-
-    private void printSQLException(SQLException ex) {
-        for (Throwable e: ex) {
-            if (e instanceof SQLException) {
-                e.printStackTrace(System.err);
-                System.err.println("SQLState: " + ((SQLException) e).getSQLState());
-                System.err.println("Error Code: " + ((SQLException) e).getErrorCode());
-                System.err.println("Message: " + e.getMessage());
-                Throwable t = ex.getCause();
-                while (t != null) {
-                    System.out.println("Cause: " + t);
-                    t = t.getCause();
-                }
-            }
-        }
-    }
+public class LoginDao {  
+	Connection connection;
+	
+public boolean validate(String username,String password){  
+boolean status=false;   
+try{   
+      
+PreparedStatement ps=connection.prepareStatement(  
+"select * from employees where username=? and password=?");  
+ps.setString(1,username);  
+ps.setString(2,password);  
+String vName = "", vPass = "";
+      
+ResultSet rs=ps.executeQuery();  
+while (rs.next()) {
+	vName = rs.getString("username");
+	vPass = rs.getString("password");
 }
+if (vName.equals(username) && (vPass.equals(password))){
+	status = true;
+}
+          
+}catch(Exception e){System.out.println(e);}  
+return status;  
+}  
+}  

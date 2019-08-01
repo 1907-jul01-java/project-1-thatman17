@@ -1,25 +1,22 @@
-<!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="ISO-8859-1">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Revature Reimbursement</title>
-<style type="text/css">
-	form, h1{
-		margin-left: auto;
-		margin-right: auto;
-		width: 40%;
-	}
-</style>
+	<meta charset = "UTF-8">
+	<title>The First Page</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
-<h1>Reimbursement</h1>
-<form action="loginsuccess.jsp" method="post">
-		<label>Log In: </label><input type="text" name="name"/>
-		<label>Password: </label><input type="text" name="password"/>
-		<input type="submit"/>
-</form>
-<div id="answer"></div>
-<script src="./app.js"></script>
+	<form action="login" method="post">
+		<h1>Log in</h1>
+		<div class="initial">
+			<label>Username</label>
+			<input type="text" name="username">
+			<label>Password</label>
+			<input type="password" name="password">
+			<input type="submit" value="login">
+		</div>
+	</form>
 </body>
+
 </html>
