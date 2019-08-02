@@ -14,4 +14,6 @@ public interface Dao2<E> {
     void delete();*/
     
     void insert(E e);
+    
+
 }

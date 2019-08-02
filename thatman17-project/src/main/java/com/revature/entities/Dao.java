@@ -12,5 +12,5 @@ public interface Dao<E> {
     void delete();
     */
     
-    boolean validate(String username, String password);
+    int validate(String username, String password);
 }

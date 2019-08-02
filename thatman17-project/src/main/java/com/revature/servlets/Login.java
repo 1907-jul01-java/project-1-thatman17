@@ -33,12 +33,17 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
     String n=request.getParameter("username");  
     String p=request.getParameter("password");  
           
-    if(function.validate(n, p)){  
+    if(function.validate(n, p) == 2){  
         RequestDispatcher rd=request.getRequestDispatcher("Manager");
         HttpSession session = request.getSession();
         session.setAttribute("username", n);
         rd.forward(request,response);  
-    }  
+    }  else if (function.validate(n, p) == 1) {
+    	RequestDispatcher rd=request.getRequestDispatcher("Employee");
+        HttpSession session = request.getSession();
+        session.setAttribute("username", n);
+        rd.forward(request,response); 
+    }
     else{  
         out.print("Sorry username or password error");  
         RequestDispatcher rd=request.getRequestDispatcher("index.html");  

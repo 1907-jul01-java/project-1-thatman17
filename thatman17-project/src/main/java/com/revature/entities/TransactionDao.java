@@ -23,7 +23,7 @@ public class TransactionDao implements Dao2<Transaction> {
 		List<Transaction> transactions = new ArrayList<>();
 		try {
 			Statement statement = connection.createStatement();
-			ResultSet resultSet = statement.executeQuery("select * from transactions");
+			ResultSet resultSet = statement.executeQuery("select * from transactions where validate = 0");
 			while (resultSet.next()) {
 				transaction = new Transaction();
 				transaction.setUsername(resultSet.getString("username"));

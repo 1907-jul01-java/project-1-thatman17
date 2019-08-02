@@ -9,26 +9,30 @@ public class Function implements Dao<Employees> {
 	Connection connection;
 	
 	@Override
-	public boolean validate(String username, String password) {
-
+	public int validate(String username, String password) {
+		int checker = 0;
 		try {
-			PreparedStatement pt = connection.prepareStatement("select username, password from employees where username =?");
+			PreparedStatement pt = connection.prepareStatement("select username, password, permission from employees where username =?");
 			pt.setString(1, username);
 			ResultSet rs = pt.executeQuery();
 			String vName = "", vPass = "";
+			boolean vPerm = false;
 			while (rs.next()) {
 				vName = rs.getString("username");
 				vPass = rs.getString("password");
+				vPerm = rs.getBoolean("permission");
 			}
-			if (vName.equals(username) && (vPass.equals(password))) {
-				return true;
+			if (vName.equals(username) && (vPass.equals(password) && vPerm)) {
+				checker = 2;
+			} else if (vName.equals(username) && (vPass.equals(password))) {
+				checker = 1;
 			} else {
-				return false;
+				
 			}
 	} catch (SQLException e) {
 		
 	}
-		return false;
+		return checker;
 	}
 	public Function(Connection connection) {
         this.connection = connection;
