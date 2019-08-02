@@ -17,6 +17,9 @@ import com.revature.util.*;
  */
 public class Employee extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	ConnectionUtil connectionUtil = new ConnectionUtil();
+    OtherFunction function = new OtherFunction(connectionUtil.getConnection());
     
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
@@ -26,8 +29,24 @@ public class Employee extends HttpServlet {
 		HttpSession session = request.getSession(false);
 		if(session!=null) {
 			String name=(String)session.getAttribute("username");
+			out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
+            out.println("<link rel = \"stylesheet\" href=\"main.css\"");
+            out.println("</head>");
+            out.println("<body>");
 			out.println("<h1>Welcome, Employee " + name + "</h1>");
-			request.getRequestDispatcher("manager.html").include(request, response);
+			out.println("<div class=\"block\"></div>");
+			out.println("<table>");
+			out.println("<tr>");
+			out.println("<th>Username</th>");
+			out.println("<th>Cost</th>");
+			out.println("<th>Reason</th>");
+			out.println(function.getEmployee(name));
+			out.println("</table>");
+			out.println("</body>");
+            out.println("</html>");
         }  
         else{  
             out.print("Please login first");  

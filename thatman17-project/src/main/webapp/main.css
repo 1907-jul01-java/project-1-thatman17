@@ -1,0 +1,11 @@
+table{
+	border: solid black 1px;
+}
+.block{
+	background-color: white;
+	height: 22px;
+	width: 40px;
+	position: absolute;
+	top: 112px;;
+	left: 0.5%;
+}
