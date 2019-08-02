@@ -33,7 +33,7 @@ public class Manager extends HttpServlet {
 			        out.println("<h2>Employee Transactions</h2>");
 			        out.println("<div id=\"transactions\"></div>");
 			    out.println("</div>");
-			    out.println("<script src='main.js'></script>");
+			    out.println("<script src='app.js'></script>");
 			out.println("</body>");
 			out.println("</html>");
         }  
