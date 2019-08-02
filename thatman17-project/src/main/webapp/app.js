@@ -1,18 +1,18 @@
-let movies = [];
-let moviesElement = document.querySelector('#movies');
+let transactions = [];
+let transactionsElement = document.querySelector('#transactions');
 
-function ListMovies(movies) {
+function ListTransactions(transactions) {
     return `<table>
                 <tr>
-                    <th>Id</th>
-                    <th>Title</th>
-                    <th>Year</th>
+                    <th>Username</th>
+                    <th>Cost</th>
+                    <th>Picture</th>
                 </tr>
-                ${movies.map(ListMovie).join('')}
+                ${transactions.map(ListTransaction).join('')}
             </table>`;
 }
 
-function ListMovie(transaction) {
+function ListTransaction(transaction) {
     return `<tr>
                 <td>${transaction.username}</td>
                 <td>${transaction.cost}</td>
@@ -20,16 +20,17 @@ function ListMovie(transaction) {
             </tr>`;
 }
 
-function updateMoviesElement() {
-    moviesElement.innerHTML = ListMovies(movies);
+function updateTransactionsElement() {
+    transactionsElement.innerHTML = ListTransactions(transactions);
 }
 
-function getMovies() {
+function getTransactions() {
     let xhr = new XMLHttpRequest();
-    xhr.open('get', 'v1/movies/');
+    xhr.open('get', 'v1/transactions/');
     xhr.onload = function() { 
-        movies = JSON.parse(xhr.responseText); 
-        updateMoviesElement();
+        transactions = JSON.parse(xhr.responseText); 
+        updateTransactionsElement();
     };
     xhr.send();
 }
+
