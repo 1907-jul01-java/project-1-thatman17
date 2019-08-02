@@ -7,7 +7,8 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;  
 import javax.servlet.http.HttpServlet;  
 import javax.servlet.http.HttpServletRequest;  
-import javax.servlet.http.HttpServletResponse; 
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.revature.entities.*;
 import com.revature.util.*;
@@ -33,7 +34,9 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
     String p=request.getParameter("password");  
           
     if(function.validate(n, p)){  
-        RequestDispatcher rd=request.getRequestDispatcher("manager.html");  
+        RequestDispatcher rd=request.getRequestDispatcher("Manager");
+        HttpSession session = request.getSession();
+        session.setAttribute("username", n);
         rd.forward(request,response);  
     }  
     else{  
@@ -43,6 +46,5 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
     }  
           
     out.close(); 
-    connectionUtil.close();
     }  
 }  
