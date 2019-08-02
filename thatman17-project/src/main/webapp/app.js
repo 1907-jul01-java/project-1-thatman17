@@ -3,7 +3,8 @@ let transactionsElement = document.querySelector('#transactions');
 
 function ListTransactions(transactions) {
     return `<table>
-                <tr>
+				<tr>
+					<th>Id</th>
                     <th>Username</th>
                     <th>Cost</th>
                     <th>Reason</th>
@@ -13,7 +14,8 @@ function ListTransactions(transactions) {
 }
 
 function ListTransaction(transaction) {
-    return `<tr>
+	return `<tr>
+				<td>${transaction.id}</td>
                 <td>${transaction.username}</td>
                 <td>${transaction.cost}</td>
                 <td>${transaction.picture}</td>

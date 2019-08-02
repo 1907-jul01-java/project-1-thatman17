@@ -26,6 +26,7 @@ public class TransactionDao implements Dao2<Transaction> {
 			ResultSet resultSet = statement.executeQuery("select * from transactions where validate = 0");
 			while (resultSet.next()) {
 				transaction = new Transaction();
+				transaction.setId(resultSet.getInt("id"));
 				transaction.setUsername(resultSet.getString("username"));
 				transaction.setCost(resultSet.getDouble("cost"));
 				transaction.setPicture(resultSet.getString("picture"));

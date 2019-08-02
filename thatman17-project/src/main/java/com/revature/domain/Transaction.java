@@ -5,6 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 
 public class Transaction {
+	private int id;
 	private String username;
 	private double cost;
 	private String picture;
@@ -18,6 +19,13 @@ public class Transaction {
 		this.username = username;
 		this.cost = cost;
 		this.picture = picture;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	public String getUsername() {
@@ -50,7 +58,7 @@ public class Transaction {
 	
 	@Override
 	public String toString() {
-		return "Transaction [username=" + username + ", cost=" + cost + ", reason=" + picture + ", validate=" + validate +"]";
+		return "Transaction [id = " + id + ", username=" + username + ", cost=" + cost + ", reason=" + picture + ", validate=" + validate +"]";
 	}
 	
 }
