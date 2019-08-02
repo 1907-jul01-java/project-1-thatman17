@@ -6,11 +6,12 @@ import java.util.List;
  * Dao
  */
 public interface Dao2<E> {
-    void insert(E e);
-
+    
     List<E> getAll();
 
-    void update();
+    /**void update();
 
-    void delete();
+    void delete();*/
+    
+    void insert(E e);
 }
