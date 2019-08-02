@@ -2,12 +2,21 @@
 
 <head>
 	<meta charset="UTF-8">
-	<<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>New Ticket</title>
 </head>
 
 <body>
-	It works!
+	<form action="insert" method="post">
+		<h1>New Ticket</h1>
+		<div class="initial">
+			<label>Cost</label>
+			<input type="number" name="cost">
+			<label>Reason</label>
+			<input type="text" name="picture">
+			<input type="submit" value="insert">
+		</div>
+	</form>
 </body>
 
 </html>

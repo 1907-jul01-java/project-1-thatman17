@@ -40,7 +40,10 @@ public class TransactionDao implements Dao2<Transaction> {
 	
 	@Override
 	public void insert(Transaction transaction) {
-		
+		try {
+			PreparedStatement pt = connection.prepareStatement("insert into transactions(username, cost, picture, validate) values (?, ?, ?, 0");
+			
+		}catch (SQLException e) {}
 	}
 
 }

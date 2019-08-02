@@ -51,7 +51,7 @@ public class Transaction {
 	
 	@Override
 	public String toString() {
-		return "Transaction [username=" + username + ", cost=" + cost + ", picture=" + picture + ", validate=" + validate +"]";
+		return "Transaction [username=" + username + ", cost=" + cost + ", reason=" + picture + ", validate=" + validate +"]";
 	}
 	
 }

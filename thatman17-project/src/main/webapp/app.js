@@ -6,7 +6,7 @@ function ListTransactions(transactions) {
                 <tr>
                     <th>Username</th>
                     <th>Cost</th>
-                    <th>Picture</th>
+                    <th>Reason</th>
                 </tr>
                 ${transactions.map(ListTransaction).join('')}
             </table>`;

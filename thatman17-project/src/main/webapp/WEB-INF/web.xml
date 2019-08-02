@@ -44,4 +44,14 @@
     <servlet-name>Employee</servlet-name>
     <url-pattern>/Employee</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>Insert New Tickets</description>
+    <display-name>Insert</display-name>
+    <servlet-name>Insert</servlet-name>
+    <servlet-class>com.revature.servlets.Insert</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Insert</servlet-name>
+    <url-pattern>/Insert</url-pattern>
+  </servlet-mapping>
 </web-app>
