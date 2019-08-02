@@ -19,7 +19,7 @@ public class LogoutServlet extends HttpServlet {
 		PrintWriter out=response.getWriter();
 		
 		
-		request.getRequestDispatcher("link.html").include(request, response);
+		request.getRequestDispatcher("redo.html").include(request, response);
 		
 		HttpSession session=request.getSession();
 		session.invalidate();
