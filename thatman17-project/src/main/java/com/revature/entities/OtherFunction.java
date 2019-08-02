@@ -15,7 +15,7 @@ public class OtherFunction implements BadDao<DarkTransaction> {
 		DarkTransaction dt;
 		List<DarkTransaction> dts = new ArrayList<>();
 		try {
-			PreparedStatement pt = connection.prepareStatement("select * from transactions where username =?");
+			PreparedStatement pt = connection.prepareStatement("select * from transactions where username =? and validate = 0");
 			pt.setString(1, username);
 			ResultSet resultSet = pt.executeQuery();
 			while (resultSet.next()) {

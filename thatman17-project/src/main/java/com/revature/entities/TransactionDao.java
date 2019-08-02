@@ -41,8 +41,11 @@ public class TransactionDao implements Dao2<Transaction> {
 	@Override
 	public void insert(Transaction transaction) {
 		try {
-			PreparedStatement pt = connection.prepareStatement("insert into transactions(username, cost, picture, validate) values (?, ?, ?, 0");
-			
+			PreparedStatement pt = connection.prepareStatement("insert into transactions(username, cost, picture, validate) values (?, ?, ?, 0)");
+			pt.setString(1, transaction.getUsername());
+			pt.setDouble(2, transaction.getCost());
+			pt.setString(3, transaction.getPicture());
+			pt.executeUpdate();
 		}catch (SQLException e) {}
 	}
 

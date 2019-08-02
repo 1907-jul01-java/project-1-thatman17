@@ -10,37 +10,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.revature.entities.*;
+import com.revature.domain.Transaction;
+import com.revature.entities.TransactionDao;
 import com.revature.util.*;
 
 /**
  * Servlet implementation class Insert
  */
 public class Insert extends HttpServlet {
-	private static final long serialVersionUID = 1L;
        
 	ConnectionUtil connectionUtil = new ConnectionUtil();
-    Function function = new Function(connectionUtil.getConnection());
+    TransactionDao function = new TransactionDao(connectionUtil.getConnection());
     
-    public Insert() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		response.setContentType("text/html");
+		PrintWriter out = response.getWriter(); 
+		request.getRequestDispatcher("link.html").include(request, response);
+		HttpSession session = request.getSession(false);
+		if(session!=null) {
+		String name=(String)session.getAttribute("username");
+		
+		double c = Double.parseDouble(request.getParameter("cost"));
+		String p = request.getParameter("picture");
+		function.insert(new Transaction(name, c, p));
+		
+		out.println("<h3> Your ticket has been added!</h3");
+		} else {
+			out.print("Sorry username or password error");  
+	        RequestDispatcher rd=request.getRequestDispatcher("index.html");  
+	        rd.include(request,response);  
+		}
 	}
 
 }

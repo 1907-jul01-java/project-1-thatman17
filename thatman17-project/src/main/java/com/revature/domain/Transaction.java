@@ -14,11 +14,10 @@ public class Transaction {
 	
 	};
 	
-	public Transaction(String username, double cost, String picture, int validate) {
+	public Transaction(String username, double cost, String picture) {
 		this.username = username;
 		this.cost = cost;
 		this.picture = picture;
-		this.validate = validate;
 	}
 	
 	public String getUsername() {
