@@ -10,4 +10,6 @@ public interface Service<E> {
     void update();
 
     void delete();
+    
+    List<E> getApproved();
 }

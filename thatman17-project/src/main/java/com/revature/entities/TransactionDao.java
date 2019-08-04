@@ -40,6 +40,28 @@ public class TransactionDao implements Dao2<Transaction> {
 	}
 	
 	@Override
+	public List<Transaction> getApproved(){
+		Transaction transaction;
+		List<Transaction> transactions = new ArrayList<>();
+		try {
+			Statement statement = connection.createStatement();
+			ResultSet resultSet = statement.executeQuery("select * from transactions where validate = 1");
+			while (resultSet.next()) {
+				transaction = new Transaction();
+				transaction.setId(resultSet.getInt("id"));
+				transaction.setUsername(resultSet.getString("username"));
+				transaction.setCost(resultSet.getDouble("cost"));
+				transaction.setPicture(resultSet.getString("picture"));
+				transaction.setValidate(resultSet.getInt("validate"));
+				transactions.add(transaction);
+			}
+		}catch (SQLException e) {
+			
+		}
+		return transactions;
+	}
+	
+	@Override
 	public void insert(Transaction transaction) {
 		try {
 			PreparedStatement pt = connection.prepareStatement("insert into transactions(username, cost, picture, validate) values (?, ?, ?, 0)");

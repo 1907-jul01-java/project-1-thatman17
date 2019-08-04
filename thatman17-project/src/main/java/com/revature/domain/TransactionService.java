@@ -20,6 +20,11 @@ public class TransactionService implements Service<Transaction>{
     public List<Transaction> getAll() {
         return dao.getAll();
     }
+    
+    @Override
+    public List<Transaction> getApproved(){
+    	return dao.getApproved();
+    }
 
     @Override
     public void update() {

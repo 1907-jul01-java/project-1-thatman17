@@ -8,6 +8,8 @@ import java.util.List;
 public interface Dao2<E> {
     
     List<E> getAll();
+    
+    List<E> getApproved();
 
     /**void update();
 
