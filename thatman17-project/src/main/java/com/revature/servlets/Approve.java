@@ -31,8 +31,8 @@ public class Approve extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 		int validate = 0;
 		String approval = request.getParameter("approval");
-		if (approval == null || id == 0) {
-			out.print("Please enter an id and hit approve or deny to approve or deny requests.");
+		if (id == 0) {
+			out.print("Please try again");
 		} else if (approval.equals("Approve")) {
 			validate = 1;
 			function.approve(id, validate);
