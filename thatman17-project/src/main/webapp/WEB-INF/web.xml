@@ -54,4 +54,14 @@
     <servlet-name>Insert</servlet-name>
     <url-pattern>/Insert</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description>Approves or Denies a reimbursement request</description>
+    <display-name>Approve</display-name>
+    <servlet-name>Approve</servlet-name>
+    <servlet-class>com.revature.servlets.Approve</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Approve</servlet-name>
+    <url-pattern>/Approve</url-pattern>
+  </servlet-mapping>
 </web-app>

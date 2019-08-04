@@ -10,7 +10,16 @@
     <div id="output">
         <h2>Transaction List</h2>
         <div id="transactions"></div>
-    </div>
+	</div>
+	<form action="approve" method="post">
+		<h1>Log in</h1>
+		<div class="initial">
+			<label>Insert ID:</label>
+			<input type="text" name="id">
+			<input type="submit" value="Approve">
+			<input type="submit" value="Deny">
+		</div>
+	</form>
     <script src="app.js"></script>
 </body>
 </html>
