@@ -7,7 +7,8 @@ function ListApprovals(approvals) {
 					<th>Id</th>
                     <th>Username</th>
                     <th>Cost</th>
-                    <th>Reason</th>
+					<th>Reason</th>
+					<th>Manager</th>
                 </tr>
                 ${approvals.map(ListApproval).join('')}
             </table>`;
@@ -18,7 +19,8 @@ function ListApproval(approval) {
 				<td>${approval.id}</td>
                 <td>${approval.username}</td>
                 <td>${approval.cost}</td>
-                <td>${approval.picture}</td>
+				<td>${approval.picture}</td>
+				<td>${approval.manager}</td>
             </tr>`;
 }
 

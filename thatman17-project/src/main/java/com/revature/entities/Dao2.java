@@ -17,5 +17,5 @@ public interface Dao2<E> {
     
     void insert(E e);
     
-    void approve(int id, int approval);
+    void approve(int id, int approval, String manager);
 }

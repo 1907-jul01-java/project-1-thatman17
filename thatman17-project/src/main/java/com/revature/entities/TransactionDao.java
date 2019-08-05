@@ -73,10 +73,11 @@ public class TransactionDao implements Dao2<Transaction> {
 	}
 	
 	@Override
-	public void approve(int id, int approval) {
+	public void approve(int id, int approval, String manager) {
 		try {
-			PreparedStatement pt = connection.prepareStatement("update transactions set validate = ? where id = ?");
-			pt.setInt(2, id);
+			PreparedStatement pt = connection.prepareStatement("update transactions set validate = ?, manager = ? where id = ?");
+			pt.setString(2, manager);
+			pt.setInt(3, id);
 			pt.setInt(1, approval);
 			pt.executeUpdate();
 		}catch (SQLException e) {}

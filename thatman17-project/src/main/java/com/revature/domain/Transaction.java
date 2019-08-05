@@ -10,6 +10,7 @@ public class Transaction {
 	private double cost;
 	private String picture;
 	private int validate;
+	private String manager;
 
 	public Transaction() {
 	
@@ -56,9 +57,16 @@ public class Transaction {
 		this.validate = validate;
 	}
 	
+	public String getManager() {
+		return manager;
+	}
+	public void setManager(String manager) {
+		this.manager = manager;
+	}
+	
 	@Override
 	public String toString() {
-		return "Transaction [id = " + id + ", username=" + username + ", cost=" + cost + ", reason=" + picture + ", validate=" + validate +"]";
+		return "Transaction [id = " + id + ", username=" + username + ", cost=" + cost + ", reason=" + picture + ", validate=" + validate + ", manager=" + manager + "]";
 	}
 	
 }

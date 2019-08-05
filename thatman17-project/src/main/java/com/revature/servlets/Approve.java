@@ -31,15 +31,16 @@ public class Approve extends HttpServlet {
 		int id = Integer.parseInt(request.getParameter("id"));
 		int validate = 0;
 		String approval = request.getParameter("approval");
+		String name=(String)session.getAttribute("username");
 		if (id == 0) {
 			out.print("Please try again");
 		} else if (approval.equals("Approve")) {
 			validate = 1;
-			function.approve(id, validate);
+			function.approve(id, validate, name);
 			out.print("Request approved!");
 		} else if (approval.equals("Deny")) {
 			validate = 2;
-			function.approve(id, validate);
+			function.approve(id, validate, name);
 			out.print("Request Denied!");
 		}
 		} else {
