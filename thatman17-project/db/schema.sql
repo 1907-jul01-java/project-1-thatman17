@@ -18,8 +18,8 @@ insert into transactions(username, cost, picture, validate)
 values ('Bruce', 300.25, 'Running from Local Authority', 0);
 insert into transactions(username, cost, picture, validate)
 values ('Bruce', 10.11, 'Banana Smoothie', 2);
-insert into transactions(username, cost, picture, validate)
-values ('Bruce', 85.67, 'Jet Refund', 1);
+insert into transactions(username, cost, picture, validate, manager)
+values ('Bruce', 85.67, 'Jet Refund', 1, 'Nick');
 
 insert into transactions(username, cost, picture, validate)
 values ('Tony', 30.5, 'Mechanized Suit', 0);
@@ -30,7 +30,7 @@ values ('Tony', 21, 'Funeral', 0);
 
 insert into transactions(username, cost, picture, validate)
 values ('Scott', 250.55, 'Drum Set', 0);
-insert into transactions(username, cost, picture, validate)
-values ('Scott',12546.23, 'Tiny Trophy', 1);
+insert into transactions(username, cost, picture, validate, manager)
+values ('Scott',12546.23, 'Tiny Trophy', 1, 'Stephen');
 insert into transactions(username, cost, picture, validate)
 values ('Scott', 300003.55, 'Train Set', 0);

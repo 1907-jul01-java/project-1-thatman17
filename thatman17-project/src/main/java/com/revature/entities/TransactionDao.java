@@ -53,6 +53,7 @@ public class TransactionDao implements Dao2<Transaction> {
 				transaction.setCost(resultSet.getDouble("cost"));
 				transaction.setPicture(resultSet.getString("picture"));
 				transaction.setValidate(resultSet.getInt("validate"));
+				transaction.setManager(resultSet.getString("manager"));
 				transactions.add(transaction);
 			}
 		}catch (SQLException e) {
