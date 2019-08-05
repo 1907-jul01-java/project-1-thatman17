@@ -25,7 +25,7 @@ public class Approve extends HttpServlet {
 		
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter(); 
-		request.getRequestDispatcher("link.html").include(request, response);
+		request.getRequestDispatcher("cLinks.html").include(request, response);
 		HttpSession session = request.getSession(false);
 		if(session!=null) {
 		int id = Integer.parseInt(request.getParameter("id"));
