@@ -15,7 +15,7 @@ public class Manager extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
-		request.getRequestDispatcher("link.html").include(request, response);
+		request.getRequestDispatcher("mLinks.html").include(request, response);
 		
 		HttpSession session = request.getSession(false);
 		if(session!=null) {
